@@ -12,7 +12,7 @@ const features = [
   },
   {
     t: "Tells you before the story changes",
-    d: "The alert is on your phone while the car is still moving — what happened, where it happened, and the proof to go with it.",
+    d: "The alert is on your phone while the car is still moving. What happened, where it happened, and the proof to go with it.",
   },
   {
     t: "Works with no signal",
@@ -20,11 +20,11 @@ const features = [
   },
   {
     t: "Can't be quietly removed",
-    d: "Unplug it, cut the wiring, drop the battery — each of those is an alert too, sent from Canary's own power.",
+    d: "Unplug it, cut the wiring, drop the battery. Each of those is an alert too, sent from Canary's own power.",
   },
   {
     t: "Leaves evidence, not opinions",
-    d: "Every alert is signed by the device that recorded it, so it can't be edited after the fact — not by a driver, and not by us.",
+    d: "Every alert is signed by the device that recorded it, so it can't be edited after the fact. Not by a driver, and not by us.",
   },
 ];
 
@@ -40,7 +40,7 @@ function NotificationCard() {
           <span className="text-[12px] text-black/40">now</span>
         </div>
         <div className="mt-0.5 text-[14px] font-medium tracking-[-0.01em] text-[#101513]">
-          Burnout — your Civic, Ashburn
+          Burnout · your Civic, Ashburn
         </div>
         <p className="text-[13px] leading-[1.5] text-black/55">
           11 seconds of wheelspin, two minutes ago. Tap to see it.

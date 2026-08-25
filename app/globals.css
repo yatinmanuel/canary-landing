@@ -131,6 +131,32 @@ body {
   }
 }
 
+/* Brand marquee. The track holds two identical copies of the row and shifts by
+   half its width, so the loop point lands on an exact duplicate and never
+   visibly jumps. Duration scales with the number of brands via --marquee-duration
+   so adding logos doesn't speed the row up. */
+@keyframes canary-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.canary-marquee {
+  animation: canary-marquee var(--marquee-duration, 45s) linear infinite;
+  will-change: transform;
+  /* Promote to its own layer and keep the shift on whole pixels: a composited
+     transform avoids the sub-pixel shimmer a repainting row picks up on the
+     fine detail in these marks. */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+.canary-marquee-wrap:hover .canary-marquee {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .canary-marquee { animation: none; }
+  /* Static and scrollable rather than frozen mid-loop. */
+  .canary-marquee-wrap { overflow-x: auto; }
+}
+
 /* Faint grid-line texture, reserved for the rare dark sections (per brand
    direction: full-bleed grid/noise is not a whole-site treatment anymore). */
 .canary-grid-bg-dark {

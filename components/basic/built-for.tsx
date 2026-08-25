@@ -3,7 +3,7 @@ import { Section, headingClass } from "@/components/basic/primitives";
 const columns = [
   {
     t: "Works with your car.",
-    d: "Canary reads the car's own network from behind the dash. One connector, no splicing, no dealer visit — and anything you add later plugs into the same place.",
+    d: "Canary reads the car's own network from behind the dash. One connector, no splicing, no dealer visit. Anything you add later plugs into the same place.",
   },
   {
     t: "One car, or a thousand.",
