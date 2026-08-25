@@ -34,7 +34,7 @@ export default function Footer() {
             <Canary className="h-20 w-auto fill-primary" />
           </Link>
           <span className="text-[13px] text-muted-foreground">
-            Copyright © Halvex Inc 2025, All rights reserved
+            Copyright © Canary Inc. {new Date().getFullYear()}, All rights reserved
           </span>
         </div>
 

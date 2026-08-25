@@ -1,21 +1,21 @@
-import { PreLaunchHero } from "@/components/prelaunch/hero";
-import { AbuseCards } from "@/components/prelaunch/abuse-cards";
-import { Notifications } from "@/components/prelaunch/notifications";
-import { Audiences } from "@/components/prelaunch/audiences";
-import { Security } from "@/components/prelaunch/security";
-import { Faq } from "@/components/prelaunch/faq";
-import { PreLaunchCTA } from "@/components/prelaunch/cta";
+import { BasicHero } from "@/components/basic/hero";
+import { Statement } from "@/components/basic/statement";
+import { Platform } from "@/components/basic/platform";
+import { BuiltFor } from "@/components/basic/built-for";
+import { Security } from "@/components/basic/security";
+import { Faq } from "@/components/basic/faq";
+import { BasicCTA } from "@/components/basic/cta";
 
 export default function Home() {
   return (
     <>
-      <PreLaunchHero />
-      <AbuseCards />
-      <Notifications />
-      <Audiences />
+      <BasicHero />
+      <Statement />
+      <Platform />
+      <BuiltFor />
       <Security />
       <Faq />
-      <PreLaunchCTA />
+      <BasicCTA />
     </>
   );
 }
