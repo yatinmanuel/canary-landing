@@ -78,12 +78,12 @@ function BrandMark({ brand }: { brand: Brand }) {
      width and sit slightly shorter, which is how a real logo row behaves.
      eslint-disable-next-line @next/next/no-img-element: these are small local
      SVGs, and next/image would strip the intrinsic sizing the row depends on. */
-  // eslint-disable-next-line @next/next/no-img-element
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={brand.logo}
       alt={brand.name}
-      className="h-[38px] w-auto max-w-[118px] shrink-0 object-contain opacity-40 transition-opacity duration-200 hover:opacity-75"
+      className="h-[38px] w-auto max-w-[118px] shrink-0 object-contain opacity-40 transition-opacity dark:opacity-50 dark:invert duration-200 hover:opacity-75"
     />
   );
 }
@@ -92,7 +92,7 @@ export function Brands() {
   return (
     <section className="bg-background py-16 lg:py-20">
       <div className={container}>
-        <p className="text-center text-[13.5px] leading-[1.6] text-black/50">
+        <p className="text-center text-[13.5px] leading-[1.6] text-muted-foreground">
           Works with most cars built since 2009
         </p>
       </div>

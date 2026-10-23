@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { WaitlistModalButton } from "@/components/ui/waitlistmodal";
+import { ContactLink } from "@/components/basic/contact-link";
 import { container } from "@/components/basic/primitives";
 
 const audiences = ["Rental hosts", "Fleets", "Owners"];
@@ -56,13 +56,13 @@ export function BasicHero() {
                   length — but only once there is room for it; on a phone the
                   sentence wraps on its own. */}
               <p className="max-w-[520px] text-[16.5px] leading-[1.5] tracking-[-0.005em] text-white">
-                Fleets and rental hosts trust Canary as the
-                <br className="hidden sm:inline" /> source of truth for their vehicles.
+                Canary tells you how your car is being driven
+                <br className="hidden sm:inline" /> and treated, the moment it happens.
               </p>
             </div>
 
             <div className="flex items-center">
-              <WaitlistModalButton className="h-[46px] rounded-full bg-white px-6 text-[13.5px] font-medium text-[#0c0a09] hover:bg-white/90" />
+              <ContactLink tone="onDark" />
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export function BasicHero() {
       <div className="relative z-10 py-6">
         <div className={`${container} flex flex-col items-center gap-4`}>
           <p className="text-center text-[13px] leading-[1.5] tracking-[-0.005em] text-white/55">
-            In private preview, with the people who aren&apos;t in the car
+            In private preview. Built for the people who aren&apos;t in the car
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
             {audiences.map((a) => (

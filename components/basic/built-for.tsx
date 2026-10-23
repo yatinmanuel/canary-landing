@@ -17,17 +17,18 @@ const columns = [
 
 export function BuiltFor() {
   return (
-    <Section>
-      <h2 className={`max-w-[720px] ${headingClass} text-[#101513]`}>
+    <Section className="!pb-0">
+      <h2 className={`max-w-[760px] ${headingClass} text-foreground`}>
         Built for the complexity of real cars.
       </h2>
 
-      <div className="mt-7 grid gap-x-6 gap-y-14 md:grid-cols-3 lg:mt-9">
+      <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-3 lg:mt-16">
         {columns.map((c) => (
-          <div key={c.t}>
-            <div className="h-px w-full bg-black/[0.08]" />
-            <h3 className="mt-6 text-[15.5px] font-medium tracking-[-0.01em] text-black">{c.t}</h3>
-            <p className="mt-2 text-[13.5px] leading-[1.6] text-black/50">{c.d}</p>
+          <div key={c.t} className="border-t border-foreground/80 pt-6">
+            <h3 className="text-[20px] font-medium leading-[1.2] tracking-[-0.015em] text-foreground">
+              {c.t}
+            </h3>
+            <p className="mt-3 text-[15.5px] leading-[1.6] text-muted-foreground">{c.d}</p>
           </div>
         ))}
       </div>

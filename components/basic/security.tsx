@@ -2,7 +2,7 @@
    ships client-only icon components. */
 import { CarProfile, Lock, Moon, Plugs, UsersThree, WifiSlash } from "@phosphor-icons/react/dist/ssr";
 
-import { Section, headingClass } from "@/components/basic/primitives";
+import { Section } from "@/components/basic/primitives";
 
 /* The six run as a chain, not six unrelated facts: tamper → parked → offline
    covers when Canary is working, then source → unchangeable → who controls it
@@ -12,17 +12,17 @@ const items = [
   {
     icon: Plugs,
     t: "Tamper alerts",
-    d: "Unplug it, cut the wiring, pull it out of the car. Each one reaches your phone in seconds, from Canary's own battery, with where the car was the moment before it went dark.",
+    d: "Unplug it, cut the wiring or disconnect the battery. Each one reaches your phone in seconds, sent on Canary's own backup battery, with where the car was the moment before it went dark.",
   },
   {
     icon: Moon,
     t: "Parked, not asleep",
-    d: "Overnight, in long-term parking, weeks between rentals. Canary stays awake for movement, towing and anyone getting into the car. Parked is when most of it happens.",
+    d: "Overnight, in long-term parking, between rentals. Canary sleeps light and wakes the moment the car moves — including when it's being towed.",
   },
   {
     icon: WifiSlash,
     t: "No signal needed",
-    d: "Tunnels, underground garages, dead zones. Canary works out what happened inside the car and sends it the moment it reconnects. Nothing is missed while it's out of range.",
+    d: "Tunnels, underground garages, dead zones. Canary works out what happened inside the car, holds onto it, and sends it the moment it reconnects.",
   },
   {
     icon: CarProfile,
@@ -32,31 +32,33 @@ const items = [
   {
     icon: Lock,
     t: "Can't be edited",
-    d: "Every alert is signed by the device that recorded it. Clear a fault code on the car and it's still on your record. The vehicle's memory can be wiped. Yours can't.",
+    d: "Every alert is signed by the device that recorded it. Clear a warning light on the car and it's still on your record. The car's memory can be wiped. Yours can't.",
   },
   {
     icon: UsersThree,
     t: "Owners and hosts only",
-    d: "Full picture and full controls for whoever owns the car. Not for whoever has the keys this week. That's decided on our side, not by hiding a button in an app.",
+    d: "Full picture and full controls for whoever owns the car — not whoever has the keys this week. Renters and drivers never get access.",
   },
 ];
 
 export function Security() {
   return (
-    <Section id="security" tone="dark" className="lg:py-36">
-      <h2 className={`max-w-[720px] ${headingClass} text-white`}>
-        Built to survive someone trying to stop it.
+    <Section id="security" tone="dark" className="canary-noise relative scroll-mt-20 lg:py-40">
+      <h2 className="max-w-[1000px] text-balance text-[clamp(2.4rem,5.6vw,5rem)] font-medium leading-[1.0] tracking-[-0.035em] text-white">
+        Built to survive someone <span className="text-primary">trying to stop it.</span>
       </h2>
 
-      <div className="mt-16 grid gap-x-14 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
+      <dl className="mt-16 grid gap-x-16 md:grid-cols-2 lg:mt-24">
         {items.map(({ icon: Icon, t, d }) => (
-          <div key={t}>
-            <Icon size={22} weight="regular" className="text-primary" />
-            <h3 className="mt-5 text-[18px] font-medium tracking-[-0.01em] text-white">{t}</h3>
-            <p className="mt-3 text-[14.5px] leading-[1.7] text-white/55">{d}</p>
+          <div key={t} className="border-t border-white/[0.12] py-8">
+            <dt className="flex items-center gap-3 text-[20px] font-medium tracking-[-0.015em] text-white">
+              <Icon aria-hidden size={20} weight="regular" className="shrink-0 text-primary" />
+              {t}
+            </dt>
+            <dd className="mt-3 max-w-[520px] text-[15.5px] leading-[1.65] text-white/60">{d}</dd>
           </div>
         ))}
-      </div>
+      </dl>
     </Section>
   );
 }

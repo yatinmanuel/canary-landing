@@ -1,5 +1,6 @@
 import { BasicHero } from "@/components/basic/hero";
 import { Statement } from "@/components/basic/statement";
+import { Audiences } from "@/components/basic/audiences";
 import { Platform } from "@/components/basic/platform";
 import { BuiltFor } from "@/components/basic/built-for";
 import { Brands } from "@/components/basic/brands";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <BasicHero />
       <Statement />
+      <Audiences />
       <Platform />
       <BuiltFor />
       <Brands />

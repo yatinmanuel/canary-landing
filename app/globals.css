@@ -119,6 +119,19 @@ body {
   * {
     @apply border-border;
   }
+  html {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+  }
+  a, button {
+    touch-action: manipulation;
+  }
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;

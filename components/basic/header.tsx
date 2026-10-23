@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 import { CanaryWordmarkText } from "@/components/branding/canary-wordmark-text";
 import { Canary } from "@/components/ui/icons";
@@ -10,7 +13,29 @@ import { container } from "@/components/basic/primitives";
 const links = [
   { title: "Platform", href: "/#platform" },
   { title: "Security", href: "/#security" },
+  { title: "How it works", href: "/technology" },
+  { title: "About", href: "/about" },
 ];
+
+function ThemeToggle({ className }: { className: string }) {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const dark = resolvedTheme === "dark";
+
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(dark ? "light" : "dark")}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      className={`grid h-9 w-9 place-items-center rounded-full transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${className}`}
+    >
+      {/* resolvedTheme is unknown on the server; render the icon after mount so
+          it can't hydrate wrong. */}
+      {mounted && (dark ? <Sun aria-hidden className="h-4 w-4" /> : <Moon aria-hidden className="h-4 w-4" />)}
+    </button>
+  );
+}
 
 /* Two states, no menu. Over the dark hero the header floats transparent with a
    white lockup; on every other page it sits in flow with the normal palette. */
@@ -39,7 +64,7 @@ export default function BasicHeader() {
           <CanaryWordmarkText style={{ height: 16 }} className={`w-auto shrink-0 ${fill}`} />
         </Link>
 
-        <nav aria-label="Primary" className="flex items-center gap-6">
+        <nav aria-label="Primary" className="flex items-center gap-4 sm:gap-6">
           {links.map((l) => (
             <Link
               key={l.title}
@@ -49,11 +74,12 @@ export default function BasicHeader() {
               {l.title}
             </Link>
           ))}
+          <ThemeToggle className={link} />
           <Link
             href="/contact"
-            className={`inline-flex items-center rounded-full px-4 pb-[9px] pt-[10px] text-[13px] font-medium leading-none transition-colors duration-150 ${cta}`}
+            className={`inline-flex items-center rounded-full px-4 pb-[9px] pt-[10px] text-[13px] font-medium leading-none transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${cta}`}
           >
-            Get early access
+            Contact
           </Link>
         </nav>
       </div>
